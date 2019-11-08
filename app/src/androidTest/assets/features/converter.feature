@@ -13,7 +13,7 @@ Scenario Outline: Input a correct Decimal to convert into Roman numerals
 Examples:
 |Decimal        |Result     |
 |5              |V          |
-|3              |III        |
+|3              |II         |
 |4              |IV         |
-|9              |X          |
+|9              |IX         |
 |14             |XIV        |
