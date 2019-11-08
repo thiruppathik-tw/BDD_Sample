@@ -7,8 +7,6 @@ import androidx.test.rule.ActivityTestRule;
 import com.thiru.bddsample.MainActivity;
 import com.thiru.bddsample.R;
 
-import org.junit.Test;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;

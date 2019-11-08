@@ -2,9 +2,11 @@ package com.thiru.bddsample.steps;
 
 import androidx.test.rule.ActivityTestRule;
 
-import com.thiru.bddsample.test.ConverterTest;
 import com.thiru.bddsample.MainActivity;
+import com.thiru.bddsample.test.ConverterTest;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,9 +17,15 @@ public class ConverterTestSteps {
 
     private ActivityTestRule activityRule = new ActivityTestRule(MainActivity.class, false, true);
 
+    @Before
+    public void setup() {
+        converterTest.launchConverterActivity(activityRule);
+    }
+
     @Given("^I have a Converter Activity")
     public void startMainActivity() {
-        converterTest.launchConverterActivity(activityRule);
+//        Instrumentation instrumentation = InstrumentationRegistry.getInstrumentation();
+//        Espresso.setFailureHandler(new CustomFailureHandler(instrumentation, activityRule));
     }
 
     @When("^I input decimal in decimal field (\\S+)$")
@@ -34,6 +42,10 @@ public class ConverterTestSteps {
     @Then("^I should get the equivalent roman number (\\S+)$")
     public void shouldGetRoman(String roman) {
         converterTest.isValidConversion(roman);
+    }
+
+    @After
+    public void finish() {
         converterTest.finishConverterActivity(activityRule);
     }
 }
